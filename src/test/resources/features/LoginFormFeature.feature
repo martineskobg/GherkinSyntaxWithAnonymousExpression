@@ -3,33 +3,26 @@ Feature: Login form test
   Description: The purpose of this file is to test web Login form.
 
   Rule: Successful login
-    Background:
+    Scenario Outline: Successful login of all type of users
       Given Correct username and password
-# The first example starts with Scenario:
-    Scenario: Successful login of ordinary user
-      And Ordinary user
+      And User is an "<type_of_User>"
       When I Click on login button
       Then I should see "Successful login!" message
-      But I should not see the admin section
 
-# The second example starts with Example
-    Example: Successful login of admin user
-      Given Admin user
-      When I Click on login button
-      Then I should see "Successful login!" message
-      Then I can see the admin section
+      Examples:
+        | type_of_User |
+        | Admin        |
+        | Ordinary     |
 
-  Rule: Unsuccessful login
+  Rule: Unsuccessful login if one of the required fields is incorrect
 
     Scenario Outline: Unsuccessful login of all type of users
-      Given Incorrect <username> Or <password>
-      And <type> user
+      Given Incorrect "<incorrect_input>" field
       When I Click on login button
       Then I should see "Wrong username or password!" message
 
       Examples:
-        | type     | username     | password           |
-        | Admin    | correctAdmin | wrong_admin_pass   |
-        | Admin    | wrongAdmin   | correct_admin_pass |
-        | Ordinary | wrongUser    | correct_pass       |
-        | Ordinary | correctUser  | wrong_pass         |
+        | incorrect_input |
+        | wrong_password  |
+        | wrong_username  |
+        | wrong_email     |

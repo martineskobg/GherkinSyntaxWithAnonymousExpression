@@ -1,14 +1,11 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class SignupFormSteps {
 
-    @When("I fill in all required fields")
-    public void iFillInAllRequiredFields() {
+    @When("I fill in all fields")
+    public void iFillInAllFields() {
         System.out.println("When I fill in all required fields");
     }
 
@@ -33,23 +30,25 @@ public class SignupFormSteps {
         System.out.println("\nGiven Correct user data");
     }
 
-    @And("I fill in the optional field")
-    public void iFillInTheOptionalField() {
-        System.out.println("And I fill in the optional field");
+
+    @Given("Incorrect {word}")
+    public void incorrectInput(String input) {
+        System.out.println("Given Incorrect " + input);
     }
 
-    @Given("Incorrect username")
-    public void incorrectUsername() {
-        System.out.println("Given Incorrect username");
-    }
 
-    @And("Correct password and email")
-    public void correctPasswordAndEmail() {
-        System.out.println("And Correct password and email");
+    @When("I fill in only the required fields")
+    public void iFillOnlyTheRequiredFields() {
+        System.out.println("I fill only the required fields");
     }
 
     @Then("I can see {string} message")
-    public void iHaveMessage(String incorrectUsername) {
-        System.out.printf("Then I have \"%s\" message",incorrectUsername);
+    public void iCanSeeMessage(String incorrectUsername) {
+        System.out.printf("I can see  \"%s\" message\n", incorrectUsername);
+    }
+
+    @But("I should not receive confirmation email")
+    public void iShouldNotReceiveConfirmationEmail() {
+        System.out.println("I should not receive confirmation email");
     }
 }

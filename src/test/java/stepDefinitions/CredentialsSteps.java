@@ -9,9 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class CredentialsSteps {
-
-
-    private List<Map<String, String>> credentials;
+        private List<Map<String, String>> credentials;
 
     @Given("users credentials")
     public void users_credentials(io.cucumber.datatable.DataTable dataTable) {
@@ -31,7 +29,7 @@ public class CredentialsSteps {
 
     @Then("I should see all user credentials on the console")
     public void i_should_see_all_user_credentials_on_the_console() {
-
+        System.out.println("\nThen I should see all user credentials on the console");
     }
 
 }

@@ -8,7 +8,7 @@ Feature: Signup form test
       Given Correct user data
 
     Scenario: Signup with correct user data
-      When I fill in all required fields
+      When I fill in only the required fields
       And I Click on submit button
       Then I have to receive confirmation email
 
@@ -21,15 +21,18 @@ Feature: Signup form test
       that it has a more-or-less normal distribution of letters,
       as opposed to using 'Content here, content here',
       """
-      When I fill in all required fields
-      And I fill in the optional field
+      When I fill in all fields
       And I Click on submit button
       Then I have to receive confirmation email
 
   Rule: One of the required fields should be incorrect
-    Scenario: If username is incorrect
-      Given Incorrect username
-      And Correct password and email
+    Scenario Outline: When one of required fields is incorrect
+      Given Incorrect "<incorrect_input_field>"
       When I Click on submit button
       Then I can see "Incorrect username" message
-
+      But I should not receive confirmation email
+      Examples:
+        | incorrect_input_field |
+        | username              |
+        | password              |
+        | email                 |

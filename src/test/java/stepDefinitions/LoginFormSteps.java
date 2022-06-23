@@ -1,19 +1,11 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.But;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class LoginFormSteps {
     @Given("Correct username and password")
     public void correctUsernameAndPassword() {
         System.out.println("Given Correct username and password");
-    }
-
-    @Given("Ordinary user")
-    public void ordinaryUser() {
-        System.out.println("Given Ordinary user");
     }
 
     @When("I Click on login button")
@@ -26,25 +18,14 @@ public class LoginFormSteps {
         System.out.printf("I should see %s message\n", message);
     }
 
-    @But("I should not see the admin section")
-    public void iShouldNotSeeTheAdminSSection() {
-        System.out.println("I should not see the admin section");
+    @And("User is an {}")
+    public void userIs(String typeOfUser) {
+        System.out.printf("\nGiven %s user\n", typeOfUser);
     }
 
-
-    @Given("Admin user")
-    public void adminUser() {
-        System.out.println("Given Admin user");
-    }
-
-    @Then("I can see the admin section")
-    public void iCanSeeTheAdminSSection() {
-        System.out.println("I can see the admin section");
-    }
-
-    @Given("Incorrect {} Or {}")
-    public void incorrectUsernameOrPassword(String username, String password) {
-        System.out.printf("Given username = %s and password = %s\n", username, password);
+    @Given("Incorrect {} field")
+    public void incorrectField(String incorrect_field) {
+        System.out.printf("\nGiven Incorrect %s field\n", incorrect_field);
     }
 
 }
