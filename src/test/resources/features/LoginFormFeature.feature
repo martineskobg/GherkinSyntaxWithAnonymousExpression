@@ -2,10 +2,12 @@
 Feature: Login form test
   Description: The purpose of this file is to test web Login form.
 
+
   Rule: Successful login
+    @SuccessfulLogin
     Scenario Outline: Successful login of all type of users
       Given Correct username and password
-      And User is an "<type_of_User>"
+      * User is an "<type_of_User>"
       When I Click on login button
       Then I should see "Successful login!" message
 
@@ -14,8 +16,9 @@ Feature: Login form test
         | Admin        |
         | Ordinary     |
 
-  Rule: Unsuccessful login if one of the required fields is incorrect
 
+  Rule: Unsuccessful login if one of the required fields is incorrect
+    @UnsuccessfulLogin
     Scenario Outline: Unsuccessful login of all type of users
       Given Incorrect "<incorrect_input>" field
       When I Click on login button

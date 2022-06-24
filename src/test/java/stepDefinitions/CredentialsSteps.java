@@ -1,18 +1,18 @@
 package stepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class CredentialsSteps {
         private List<Map<String, String>> credentials;
 
     @Given("users credentials")
-    public void users_credentials(io.cucumber.datatable.DataTable dataTable) {
+    public void users_credentials(DataTable dataTable) {
         credentials = dataTable.asMaps();
 
     }

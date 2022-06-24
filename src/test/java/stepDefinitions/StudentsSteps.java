@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,7 +11,7 @@ public class StudentsSteps {
     private List<String> studentNames;
 
     @Given("Student names as Data Table")
-    public void student_names_as_data_table(io.cucumber.datatable.DataTable dataTable) {
+    public void student_names_as_data_table(DataTable dataTable) {
         studentNames = dataTable.asList();
     }
 
@@ -28,5 +29,4 @@ public class StudentsSteps {
     public void i_should_see_all_names() {
         System.out.println("\nI see all student names");
     }
-
 }

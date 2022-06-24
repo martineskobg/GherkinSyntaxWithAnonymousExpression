@@ -7,11 +7,13 @@ Feature: Signup form test
     Background:
       Given Correct user data
 
+    @SuccessfulSignup
     Scenario: Signup with correct user data
       When I fill in only the required fields
       And I Click on submit button
       Then I have to receive confirmation email
 
+    @SuccessfulSignup
     Scenario: Signup with correct user data and optional text field
       And Optional dummy text field with
       """
@@ -26,6 +28,7 @@ Feature: Signup form test
       Then I have to receive confirmation email
 
   Rule: One of the required fields should be incorrect
+    @UnsuccessfulSignup
     Scenario Outline: When one of required fields is incorrect
       Given Incorrect "<incorrect_input_field>"
       When I Click on submit button
