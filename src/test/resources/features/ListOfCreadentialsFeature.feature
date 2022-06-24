@@ -1,4 +1,5 @@
 #Martin Bachev
+@credentials
 Feature: List of credentials
   Description:
 

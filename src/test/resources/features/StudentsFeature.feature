@@ -1,4 +1,5 @@
 #Martin Bachev
+@students
 Feature: Test List of Student names
   Description: Will demonstrate how can take data from Data Table
   and use it.

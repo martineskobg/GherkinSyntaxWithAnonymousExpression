@@ -1,4 +1,5 @@
 #Martin Bachev
+@signup
 Feature: Signup form test
   Description: The purpose of this file is to test web Signup form.
   The Signup form has 5 mandatory fields and one optional field.

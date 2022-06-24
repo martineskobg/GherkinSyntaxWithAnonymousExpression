@@ -1,4 +1,5 @@
 #Martin Bachev
+@login
 Feature: Login form test
   Description: The purpose of this file is to test web Login form.
 
